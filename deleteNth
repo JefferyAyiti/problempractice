@@ -1,0 +1,19 @@
+function deleteNth(arr,n){
+  const uniArr = Array.from(new Set(arr))
+  const multArr = uniArr.map(e => e * n)
+  
+  result = []
+  arr.forEach( a => {
+    const pos = uniArr.indexOf(a)
+    const mValue = multArr.at(pos)
+    if( mValue > 0) {
+      result.push(a)
+      multiArr[pos] = multArr[pos] - a
+    }
+  })
+  
+  return result
+  
+  
+  // ...
+}
