@@ -1,0 +1,42 @@
+The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned. 
+Valid decimal values for RGB are 0 - 255. Any values that fall out of that range must be rounded to the closest valid value.
+====================================================
+function hexN(n){
+  if(n > 255) n = 255;
+  if(n < 0) n = 0;
+  if(n == 0) return "00"
+  if(n < 16) return n.toString()
+  
+  let now = n;
+  const arr = []
+  
+  while(now > 0){
+    const num = now%16
+    arr.push(num)
+    now =  Math.floor(now/16)
+  }
+  
+  const hex = arr.map(n =>  n <10 ? n : (n == 10? 'A': (n == 11? 'B':(n==12? 'C':(n==13? 'D':(n==14? 'E': (n == 15? 'F': 'X')))))))
+  
+  return hex.reverse().join('')
+}
+
+======Solution===============
+
+function hexColour(c) {
+  if(c > 255) c = 255;
+  if(c < 0) c = 0;
+  if (c < 256) {
+    if(c == 0) return "00"
+    return Math.abs(c).toString(16).toUpperCase();
+  }
+  return 0;
+}
+
+function rgb(r, g, b){
+  const r_value = hexColour(r);
+  const g_value = hexColour(g);
+  const b_value = hexColour(b);
+  
+  return r_value.concat(g_value, b_value)
+}
