@@ -5,7 +5,7 @@ function hexN(n){
   if(n > 255) n = 255;
   if(n < 0) n = 0;
   if(n == 0) return "00"
-  if(n < 16) return n.toString()
+  
   
   let now = n;
   const arr = []
@@ -16,27 +16,21 @@ function hexN(n){
     now =  Math.floor(now/16)
   }
   
-  const hex = arr.map(n =>  n <10 ? n : (n == 10? 'A': (n == 11? 'B':(n==12? 'C':(n==13? 'D':(n==14? 'E': (n == 15? 'F': 'X')))))))
+  let hex = []
+  if(arr.length == 1){
+      hex = arr.map(s =>  s <10 ? '0'+ s : (s == 10? '0A': (s == 11? '0B':(s==12? '0C':(s==13? '0D':(s==14? '0E': (s == 15? 'F': 'X')))))))
+  }else{
+      hex = arr.map(s =>  s <10 ? s : (s == 10? 'A': (s == 11? 'B':(s==12? 'C':(s==13? 'D':(s==14? 'E': (s == 15? 'F': 'X')))))))
+
+  }
   
   return hex.reverse().join('')
 }
 
-======Solution===============
-
-function hexColour(c) {
-  if(c > 255) c = 255;
-  if(c < 0) c = 0;
-  if (c < 256) {
-    if(c == 0) return "00"
-    return Math.abs(c).toString(16).toUpperCase();
-  }
-  return 0;
-}
-
 function rgb(r, g, b){
-  const r_value = hexColour(r);
-  const g_value = hexColour(g);
-  const b_value = hexColour(b);
+  const r_value = hexN(r);
+  const g_value = hexN(g);
+  const b_value = hexN(b);
   
   return r_value.concat(g_value, b_value)
 }
