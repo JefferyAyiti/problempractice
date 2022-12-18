@@ -12,7 +12,7 @@ function toCamelCase(str){
   return spArray.slice(0,1).concat(subArray).join('')
 
 }
-=====Favorite======
+=====Favorite Solution======
 function toCamelCase(str){
   return str.replace(/[_-]\w/gi, ch => ch[1].toUpperCase());
 }
