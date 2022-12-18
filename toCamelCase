@@ -2,7 +2,7 @@ Complete the method/function so that it converts dash/underscore delimited words
 The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case). 
 The next words should be always capitalized.
 
-=====Solution=====
+=====My Solution=====
 function toCamelCase(str){
   const re = /_|-/
   
@@ -11,4 +11,8 @@ function toCamelCase(str){
   
   return spArray.slice(0,1).concat(subArray).join('')
 
+}
+=====Favorite======
+function toCamelCase(str){
+  return str.replace(/[_-]\w/gi, ch => ch[1].toUpperCase());
 }
