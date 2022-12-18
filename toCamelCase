@@ -1,0 +1,14 @@
+Complete the method/function so that it converts dash/underscore delimited words into camel casing. 
+The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case). 
+The next words should be always capitalized.
+
+=====Solution=====
+function toCamelCase(str){
+  const re = /_|-/
+  
+  const spArray = str.split(re)
+  const subArray = spArray.slice(1).map( w => w.charAt(0).toUpperCase() + w.slice(1) )
+  
+  return spArray.slice(0,1).concat(subArray).join('')
+
+}
