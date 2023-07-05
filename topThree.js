@@ -46,3 +46,15 @@ function compareFn(a, b) {
 
 
 //Second Solution
+function topThreeWords(text) {
+  const countWords = new Map();
+  const regEx = new RegExp("\\b[a-zA-Z]+('[a-zA-Z]+)?\\b", "g");
+  text.trim().replace(regEx, (match) => {
+    let word = match.toLowerCase();
+    countWords.set(word, countWords.has(word) ? countWords.get(word) + 1 : 1);
+  });
+  return [...countWords]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map((m) => m[0]);
+}
