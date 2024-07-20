@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "tsc": "^2.0.4",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.7",
+    "vitest": "^2.0.3"
+  },
+  "scripts": {
+    "test": "vitest"
+  }
+}
